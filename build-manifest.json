@@ -1,0 +1,448 @@
+{
+  "version": "7bh-formal-v14",
+  "material_sha256": "8cd0c30b0ee22e9bae31f05c62a7bba6753b150e9eb851e1e255dc49c3aa01db",
+  "researcher_preview": true,
+  "participant_ready": true,
+  "formal_assignment_schedules": [
+    "all-local",
+    "jump-2",
+    "jump-5"
+  ],
+  "standalone_pages": [
+    "routes/consent",
+    "routes/reminder",
+    "routes/tutorial",
+    "routes/comprehension",
+    "routes/task",
+    "routes/debrief",
+    "routes/completion"
+  ],
+  "event_schema_version": "1.0",
+  "assignment_method": "randomized-blocks-of-3",
+  "deployment": {
+    "public_path": "/home/bococo81/public_html/7BH",
+    "private_data_path": "/home/bococo81/server_data/7BH"
+  },
+  "schedules": {
+    "all-local": {
+      "title": "All local",
+      "order": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "materials": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "probe_position": null,
+      "probe_trial": 6,
+      "reference": [
+        {
+          "carried_mask": 0,
+          "selected_mask": 1,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 1,
+          "selected_mask": 3,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 3,
+          "E": 0,
+          "D": 0
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 11,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 27,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 27,
+          "selected_mask": 11,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 75,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 75,
+          "selected_mask": 91,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 91,
+          "selected_mask": 89,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 89,
+          "selected_mask": 81,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 81,
+          "selected_mask": 209,
+          "E": 1,
+          "D": 1
+        }
+      ]
+    },
+    "jump-2": {
+      "title": "D=5 at position 2",
+      "order": [
+        "M1",
+        "M6",
+        "M2",
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "materials": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "M1",
+        "M6",
+        "M2",
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "probe_position": 2,
+      "probe_trial": 7,
+      "reference": [
+        {
+          "carried_mask": 0,
+          "selected_mask": 1,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 1,
+          "selected_mask": 3,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 3,
+          "E": 0,
+          "D": 0
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 11,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 27,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 27,
+          "selected_mask": 11,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 209,
+          "E": 5,
+          "D": 5
+        },
+        {
+          "carried_mask": 209,
+          "selected_mask": 75,
+          "E": 2,
+          "D": 4
+        },
+        {
+          "carried_mask": 75,
+          "selected_mask": 91,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 91,
+          "selected_mask": 89,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 89,
+          "selected_mask": 81,
+          "E": 1,
+          "D": 1
+        }
+      ]
+    },
+    "jump-4": {
+      "title": "D=5 at position 4",
+      "order": [
+        "M3",
+        "M2",
+        "M1",
+        "M6",
+        "M4",
+        "M5"
+      ],
+      "materials": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "M3",
+        "M2",
+        "M1",
+        "M6",
+        "M4",
+        "M5"
+      ],
+      "probe_position": 4,
+      "probe_trial": 9,
+      "reference": [
+        {
+          "carried_mask": 0,
+          "selected_mask": 1,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 1,
+          "selected_mask": 3,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 3,
+          "E": 0,
+          "D": 0
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 11,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 27,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 27,
+          "selected_mask": 91,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 91,
+          "selected_mask": 75,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 75,
+          "selected_mask": 11,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 209,
+          "E": 5,
+          "D": 5
+        },
+        {
+          "carried_mask": 209,
+          "selected_mask": 89,
+          "E": 1,
+          "D": 2
+        },
+        {
+          "carried_mask": 89,
+          "selected_mask": 81,
+          "E": 1,
+          "D": 1
+        }
+      ]
+    },
+    "jump-5": {
+      "title": "D=5 at position 5",
+      "order": [
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M1",
+        "M2"
+      ],
+      "materials": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M1",
+        "M2"
+      ],
+      "probe_position": 5,
+      "probe_trial": 10,
+      "reference": [
+        {
+          "carried_mask": 0,
+          "selected_mask": 1,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 1,
+          "selected_mask": 3,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 3,
+          "E": 0,
+          "D": 0
+        },
+        {
+          "carried_mask": 3,
+          "selected_mask": 11,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 27,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 27,
+          "selected_mask": 91,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 91,
+          "selected_mask": 89,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 89,
+          "selected_mask": 81,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 81,
+          "selected_mask": 209,
+          "E": 1,
+          "D": 1
+        },
+        {
+          "carried_mask": 209,
+          "selected_mask": 11,
+          "E": 3,
+          "D": 5
+        },
+        {
+          "carried_mask": 11,
+          "selected_mask": 75,
+          "E": 1,
+          "D": 1
+        }
+      ]
+    }
+  },
+  "shared_material_hashes": {
+    "T1": "20ce836b0466da19ee84db57172446c5a3ea8f524cf62747a9bbc75be06da088",
+    "T2": "f93e47f62523e9b714a91f8c2d2c6bc31bd11e3e20eba98896dff623fb8cd75a",
+    "T3": "208dd148261cda461ede68f3d195ae0cb7ced9b7fd90569d6f9ab8545076ace0",
+    "T4": "05b0f2e0a49c94143557b1f3593a562903a75269112c79ac9bedcf728fccfdb8",
+    "T5": "d6cb31c459858c3e9ac2eba44de43a9ee39ab7db78444966a3bd6c04110d5633",
+    "M1": "084ada38ed2996ecbd757f429c065e711e5e7cb47e9d40b05b25f2af5a3abc24",
+    "M2": "919681c51d4fd0ce960f45ebaffd884690ec366e1c42383a66ac33122b3d9330",
+    "M3": "c8426128688446729c2264c1b12165a3afd7357261c677d8fb0b3eed28dc6e41",
+    "M4": "eeed7ca7fa168a14616c49654ee839c17a7dc6c52b6562cb2083527c3c80238a",
+    "M5": "3194f1965db89cffa5dd0e276f393582d8c20487c91264669059dc62269fdf58",
+    "M6": "e5b145f7d326e4241bcaf96cbb3aea474317e9bf0abd5a7cfc809475f46df493"
+  },
+  "preserved": {
+    "engine.js": "97c8c9f119a895d4344266ec171cad0f9755c72aeedec35a18be446a92e3907d",
+    "tutorial.js": "d3a29c05cf295e8ba08dc9115e44c53bffbb43764172f28ffa963260a219bb70",
+    "styles.css": "226f1e50729ae7ae832061ac6b60e5b90fea1a7b81df1325f2e11a520d43776c",
+    "data-collector.js": "c8dc36dfef01f5e4a3486b8c5fbb0a579cc20c11f8cd837e530c3a23789fc4e8",
+    "stage-page.js": "dbebb32b49e231e620ff2602960f9e4f6ce2d90a7c0659862dbb8e81a41e557d",
+    "debrief.js": "7440b2208cb4a5e227610d7d8fb6ee63438ab1be7a9cd897e0c41347142804ce",
+    "completion.js": "7bf7942128aeddfab10a1dfd009b2fd4a9477cbd92dcf80ea852c24ba7d8b458",
+    "assignment.js": "0a284124d810e6ac6e67e3f744c40d8c746ef4a4bb4f73105d818f220fec0409",
+    "reminder.js": "dd1e8e1960a6b97bf7f74aa9acc59c3cdc1da2227783db3a73d1171375cfb853",
+    "record_result.php": "5b21469234bdcac557a1949bc33a1135c58d4541676a41ef3ce35048331d9644",
+    "assign_condition.php": "9376495b35dcdda1eba5de4afca29c06cc396b591b1e33ba6eae33ffdddaba31"
+  },
+  "source_interface": {
+    "app.js": "ccf78a8b33cd0f80657e4df30ff51deee829eba3d428bf138ae7799e0feefa78",
+    "index.html": "c59782e5f98ee25e56f5f0df6845c9dd5323f4f962801c94601e7ffcf5695d1e"
+  },
+  "wall_texture_sha256": "5a163fe1dbdbf8fce42a6e1e7f36849e76392047bc7365a94616e66c230dfa95",
+  "logical_canvas": [
+    1280,
+    880
+  ],
+  "map_pixels": [
+    608,
+    608
+  ],
+  "limits": [
+    "E/D schedules describe nearest successful Movement repair, not every human trajectory.",
+    "Server persistence requires PHP and pre-created private events, consent, and assignment directories.",
+    "Formal balancing counts assignments; attrition can still unbalance the final valid sample."
+  ]
+}

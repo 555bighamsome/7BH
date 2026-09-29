@@ -1,0 +1,516 @@
+{
+  "status": "passed",
+  "trials": [
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 1,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 2,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 3,
+      "E": 0,
+      "D": 0
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 4,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 5,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 6,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 7,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 8,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 9,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 10,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "all-local",
+      "continuation": "local",
+      "trial": 11,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 1,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 2,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 3,
+      "E": 0,
+      "D": 0
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 4,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 5,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 6,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 7,
+      "E": 5,
+      "D": 5
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 8,
+      "E": 2,
+      "D": 4
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 9,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 10,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-2",
+      "continuation": "local",
+      "trial": 11,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 1,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 2,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 3,
+      "E": 0,
+      "D": 0
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 4,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 5,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 6,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 7,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 8,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 9,
+      "E": 5,
+      "D": 5
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 10,
+      "E": 1,
+      "D": 2
+    },
+    {
+      "schedule": "jump-4",
+      "continuation": "local",
+      "trial": 11,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 1,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 2,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 3,
+      "E": 0,
+      "D": 0
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 4,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 5,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 6,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 7,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 8,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 9,
+      "E": 1,
+      "D": 1
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 10,
+      "E": 3,
+      "D": 5
+    },
+    {
+      "schedule": "jump-5",
+      "continuation": "local",
+      "trial": 11,
+      "E": 1,
+      "D": 1
+    }
+  ],
+  "sizes": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "trial": 1,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "trial": 5,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "trial": 10,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "trial": 11,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "trial": 1,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "trial": 5,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "trial": 10,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "trial": 11,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "trial": 1,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "trial": 5,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "trial": 10,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "trial": 11,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "trial": 1,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "trial": 5,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "trial": 10,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "trial": 11,
+      "overlaps": 0,
+      "boardFits": true,
+      "runVisible": true,
+      "logicalWidth": "608px",
+      "badgeSize": "15px"
+    }
+  ],
+  "shared_materials": 11,
+  "condition_cells": 4,
+  "actual_rule_carry_checked": true,
+  "comprehension_preserved": true,
+  "failed_robot_colour_preserved": true,
+  "step_events_checked": true,
+  "completion_dialog_checked": true,
+  "browser_errors": [],
+  "participant_ready": true
+}

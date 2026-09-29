@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Study debrief</title>
+  <link rel="icon" href="data:,">
+  <meta name="study-data-endpoint" content="../record_result.php">
+  <link rel="stylesheet" href="../styles.css?v=7bh-formal-v14">
+  </head>
+<body data-stage="debrief" data-asset-prefix="../">
+<main id="debrief" class="debrief-simple-page" aria-labelledby="debrief-title">
+    <h1 id="debrief-title">Thank you for your contribution to science</h1>
+
+    <section id="debrief-questionnaire" class="debrief-frame" aria-label="Final questions">
+      <p class="debrief-intro">You will be eligible for full payment once you answer <strong>all questions</strong>.</p>
+
+      <form id="debrief-form" class="debrief-form">
+        <div class="debrief-field debrief-field-short">
+          <label for="debrief-age">1. How old are you?</label>
+          <div class="debrief-inline-control">
+            <input id="debrief-age" name="age" type="number" min="18" max="100" step="1" required inputmode="numeric">
+            <span>years</span>
+          </div>
+        </div>
+
+        <div class="debrief-field">
+          <label for="debrief-gender">2. What is your gender?</label>
+          <select id="debrief-gender" name="gender" required>
+            <option value="" selected></option>
+            <option value="woman">Woman</option>
+            <option value="man">Man</option>
+            <option value="nonbinary">Non-binary</option>
+            <option value="other">Other</option>
+            <option value="prefer_not_to_say">Prefer not to say</option>
+          </select>
+        </div>
+
+        <div class="debrief-field">
+          <label for="debrief-engagement">3. On a scale of 1-10, how engaging did you find the task?</label>
+          <select id="debrief-engagement" name="engagement" required>
+            <option value="" selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option><option value="6">6</option><option value="7">7</option>
+            <option value="8">8</option><option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <p class="debrief-scale-note">1 = not at all engaging; 10 = extremely engaging</p>
+        </div>
+
+        <div class="debrief-field">
+          <label for="debrief-difficulty">4. On a scale of 1-10, how difficult did you find the task?</label>
+          <select id="debrief-difficulty" name="difficulty" required>
+            <option value="" selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option><option value="6">6</option><option value="7">7</option>
+            <option value="8">8</option><option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <p class="debrief-scale-note">1 = not at all difficult; 10 = extremely difficult</p>
+        </div>
+
+        <div class="debrief-field">
+          <label for="debrief-feature-use">5. Which information did you rely on most when deciding which robots should wait?</label>
+          <select id="debrief-feature-use" name="feature_use" required>
+            <option value="" selected></option>
+            <option value="movement">Mostly movement direction</option>
+            <option value="robot_type">Mostly robot type</option>
+            <option value="both">Both movement direction and robot type</option>
+            <option value="no_consistent_strategy">No consistent strategy</option>
+            <option value="unsure">Not sure</option>
+          </select>
+        </div>
+
+        <div class="debrief-field">
+          <label for="debrief-strategy">6. Please briefly describe how you decided which robots should wait. <span class="debrief-optional">(Optional)</span></label>
+          <textarea id="debrief-strategy" name="strategy" rows="4" maxlength="1000"></textarea>
+        </div>
+
+        <div class="debrief-actions">
+          <button class="debrief-button" id="debrief-submit" type="submit" disabled>Done</button>
+          <p class="debrief-status" id="debrief-save-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+    <section id="debrief-completion" class="debrief-frame" hidden aria-labelledby="debrief-completion-title">
+      <h2 id="debrief-completion-title">Complete</h2>
+      <p>Your completion code is:</p>
+      <div class="completion-code-row">
+        <strong id="debrief-completion-code">C1LALY4B</strong>
+        <button class="btn btn-primary" id="debrief-copy" type="button">Copy</button>
+      </div>
+      <p>Please return to Prolific and enter this code to receive payment.</p>
+      <p class="debrief-status" id="debrief-completion-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+<script src="../shared-pool.js?v=7bh-formal-v14"></script>
+<script src="../data-collector.js?v=7bh-formal-v14"></script>
+<script src="../debrief.js?v=7bh-formal-v14"></script>
+</body>
+</html>

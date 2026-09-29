@@ -1,0 +1,24 @@
+.DS_Store
+.env
+.env.*
+*.log
+
+# Never commit participant or condition-allocation records.
+*.jsonl
+*.csv
+server_data/
+events/
+consent/
+assignment/
+assignment-state.json
+
+# Server-only configuration and credentials.
+db_config.php
+*.pem
+*.key
+
+# Local visual QA artifacts.
+local-result.png
+task-*.png
+test-*.png
+

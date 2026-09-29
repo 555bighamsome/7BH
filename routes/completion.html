@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Study complete</title>
+  <link rel="icon" href="data:,">
+  <meta name="study-data-endpoint" content="../record_result.php">
+  <link rel="stylesheet" href="../styles.css?v=7bh-formal-v14">
+  </head>
+<body data-stage="completion" data-asset-prefix="../">
+<main class="completion-page" aria-labelledby="completion-title">
+    <p class="onboarding-kicker">Complete</p>
+    <h1 id="completion-title">Thank you</h1>
+    <p>You have completed the study.</p>
+    <p id="completion-save-status" role="status" aria-live="polite">Saving your responses...</p>
+    <dl class="completion-details">
+      <div><dt>Session</dt><dd id="completion-session"></dd></div>
+      <div class="researcher-only-detail" hidden><dt>Condition</dt><dd id="completion-assignment"></dd></div>
+    </dl>
+    <div class="completion-code-panel" id="completion-code-panel" hidden>
+      <p>Your completion code is:</p>
+      <div class="completion-code-row">
+        <strong id="completion-code"></strong>
+        <button class="btn" id="completion-copy" type="button">Copy</button>
+      </div>
+    </div>
+    <div class="completion-actions">
+      <button class="btn" id="completion-retry" type="button" hidden>Try saving again</button>
+      <button class="consent-big-button" id="completion-return" type="button" hidden>Return to Prolific</button>
+    </div>
+    <section id="completion-local-tools" class="completion-local-tools" hidden>
+      <h2>Local data copy</h2>
+      <p>This local preview cannot send data to a server. Download the event stream before closing the page.</p>
+      <div class="completion-downloads">
+        <button class="btn" id="download-json" type="button">Download JSON</button>
+        <button class="btn" id="download-jsonl" type="button">Download JSONL</button>
+        <button class="btn" id="download-csv" type="button">Download CSV</button>
+      </div>
+    </section>
+  </main>
+<script src="../shared-pool.js?v=7bh-formal-v14"></script>
+<script src="../data-collector.js?v=7bh-formal-v14"></script>
+<script src="../completion.js?v=7bh-formal-v14"></script>
+</body>
+</html>

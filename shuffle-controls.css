@@ -1,0 +1,16 @@
+#task-scale-shell > .wrap{height:880px;min-height:880px;}
+.task-viewport .scene-visual{flex:0 0 608px;height:608px;}
+.task-viewport .scene-panel #status{height:74px;min-height:74px;max-height:74px;flex-shrink:0;box-sizing:border-box;overflow:auto;}
+#shuffle-test-backdrop .test-condition-panel{max-height:calc(100dvh - 32px);overflow:auto;box-sizing:border-box;}
+#shuffle-test-backdrop .test-condition-matrix{grid-template-columns:minmax(100px,1fr) minmax(0,1fr);}
+#shuffle-test-backdrop .test-condition-cell{overflow-wrap:anywhere;}
+#shuffle-test-backdrop .shuffle-note{font-size:13px;line-height:1.45;color:#5b636c;margin:10px 0;}
+#shuffle-test-backdrop .shuffle-inspection,#shuffle-test-backdrop .shuffle-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+#shuffle-test-backdrop select{max-width:100%;font:inherit;padding:6px;border:1px solid #aeb4bb;background:white;}
+#shuffle-test-backdrop #shuffle-order{overflow-wrap:anywhere;margin:14px 0 8px;}
+#shuffle-test-backdrop .test-condition-header{gap:12px;}
+#shuffle-test-backdrop .test-condition-close{flex:0 0 36px;}
+@media(max-width:500px){
+  #shuffle-test-backdrop .test-condition-panel{padding:12px;}
+  #shuffle-test-backdrop .test-condition-row,#shuffle-test-backdrop .test-condition-column,#shuffle-test-backdrop .test-condition-cell{font-size:13px;}
+}
