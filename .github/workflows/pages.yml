@@ -30,6 +30,7 @@ jobs:
           cp index.html ./*.js ./*.css _site/
           cp -R assets routes _site/
           touch _site/.nojekyll
+          find _site -name '*.html' -exec sed -i "s/v=7bh-formal-v14/v=7bh-formal-v14-${GITHUB_SHA::8}/g" {} +
           test ! -e _site/record_result.php
           test ! -e _site/assign_condition.php
 
