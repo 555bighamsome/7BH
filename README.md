@@ -2,6 +2,14 @@
 
 Interface and data-collection code for a behavioural study of how people search across movement-direction and robot-type representations when constructing shared coordination rules.
 
+## Online preview
+
+The static, non-recording preview is available at:
+
+https://555bighamsome.github.io/7BH/
+
+GitHub Pages does not run the PHP assignment and data endpoints. Formal participant sessions must therefore use the Bococo deployment; the Pages build stores preview activity only in the browser.
+
 ## Local preview
 
 Run a static server from this directory:
@@ -25,4 +33,3 @@ The standalone pages cover consent, reminder, tutorial, comprehension, eleven co
 ## Data safety
 
 Participant events are not stored in this repository or under the public web directory. In deployment, the PHP endpoints expect pre-created private directories outside `public_html`. See `DATA_COLLECTION.md` for the event schema, assignment method, and deployment checks.
-
