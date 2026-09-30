@@ -2159,7 +2159,7 @@ body.tutorial-active{overflow:hidden;}
   margin:0;
 }
 .tut-body.has-overview-page .tut-copy h2{margin-bottom:12px;font-size:34px;}
-.tut-body.has-overview-page .tut-lead{margin-bottom:20px;font-size:20px;line-height:1.5;}
+.tut-body.has-overview-page .tut-lead{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #d3d6da;font-size:20px;line-height:1.5;}
 .tut-body.has-overview-page .tut-points{
   display:grid;
   gap:12px;
@@ -2174,6 +2174,8 @@ body.tutorial-active{overflow:hidden;}
   opacity:0;
 }
 .tut-body.is-progressive-overview .overview-reveal-block[aria-hidden="true"]{display:none !important;}
+/* Robot features rows keep their space while hidden so revealed rows do not shift. */
+.tut-body.is-progressive-overview .tut-intro-row.overview-reveal-block[aria-hidden="true"]{display:grid !important;visibility:hidden;}
 @keyframes tut-overview-reveal{
   from{opacity:0;transform:translateY(10px);}
   to{opacity:1;transform:translateY(0);}
@@ -2218,7 +2220,7 @@ body.tutorial-active{overflow:hidden;}
 }
 .tut-copy{min-width:0;}
 .tut-copy h2{margin:0 0 12px;font-size:28px;line-height:1.24;font-weight:700;}
-.tut-lead{margin:0 0 17px;color:#41484f;font-size:18px;line-height:1.55;}
+.tut-lead{margin:0 0 17px;color:#41484f;font-size:18px;line-height:1.55;white-space:pre-line;}
 .tut-points{margin:0;padding-left:24px;color:#555d65;font-size:17px;line-height:1.52;}
 .tut-points[hidden]{display:none;}
 .tut-points li{margin:8px 0;}
@@ -2353,21 +2355,21 @@ body.tutorial-active{overflow:hidden;}
 }
 .tut-intro-row{
   display:grid;
-  grid-template-columns:150px minmax(0,1fr);
+  grid-template-columns:190px minmax(0,1fr);
   align-items:center;
   gap:22px;
 }
 .tut-match-pair{
   display:grid;
-  grid-template-columns:52px 24px 52px;
+  grid-template-columns:72px 24px 72px;
   align-items:center;
   gap:6px;
 }
 .tut-match-robot,
 .tut-match-bay{
   position:relative;
-  width:52px;
-  height:52px;
+  width:72px;
+  height:72px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -2375,20 +2377,21 @@ body.tutorial-active{overflow:hidden;}
   color:#fff;
 }
 .tut-match-robot{background:#2563b8;}
-.tut-match-robot-icon{width:33px;height:33px;}
+.tut-match-robot-icon{width:44px;height:44px;}
 .tut-match-bay{border:3px dashed #2563b8;background:#fff;}
 .tut-match-robot i,
 .tut-match-bay i{
   position:absolute;
-  left:-5px;
-  top:-6px;
-  min-width:18px;
-  height:18px;
+  left:-7px;
+  top:-7px;
+  min-width:23px;
+  height:23px;
+  box-sizing:border-box;
   padding:0 3px;
-  border:1px solid #2563b8;
+  border:2px solid #2563b8;
   background:#fff;
   color:#2563b8;
-  font:800 11px/16px inherit;
+  font:800 12px/19px inherit;
   text-align:center;
 }
 .tut-match-arrow{color:#59616a;font-size:20px;font-weight:800;text-align:center;}

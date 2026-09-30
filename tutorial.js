@@ -33,6 +33,24 @@ const INSTRUCTION_IMAGE_PATHS = [
   `${ASSET_PREFIX}assets/instructions/robot-badges.png?v=32`,
 ];
 const OVERVIEW_REVEAL_STEP_COUNT = 6;
+const FEATURES_REVEAL_STEP_COUNT = 3;
+// Tutorial pages whose text is revealed one chunk at a time.
+const PROGRESSIVE_REVEAL_PAGES = {
+  simple_overview:{
+    stateKey:"overviewRevealStep",
+    count:OVERVIEW_REVEAL_STEP_COUNT,
+    event:"tutorial_overview_block_revealed",
+  },
+  simple_features:{
+    stateKey:"featuresRevealStep",
+    count:FEATURES_REVEAL_STEP_COUNT,
+    event:"tutorial_features_block_revealed",
+  },
+};
+const REVEAL_IGNORED_KEYS = new Set([
+  "Tab", "Shift", "Control", "Alt", "AltGraph", "Meta", "OS",
+  "CapsLock", "NumLock", "ScrollLock", "Fn", "FnLock", "Hyper", "Super",
+]);
 
 function icon(name, extraClass=""){
   const cls = `ui-icon ${extraClass}`.trim();
@@ -107,6 +125,7 @@ const state = {
   simpleValues:{move_dir:[], role:[]},
   simplePracticeSolved:false,
   overviewRevealStep:0,
+  featuresRevealStep:0,
 };
 
 function agentDisplayId(id){
@@ -380,11 +399,11 @@ const SIMPLE_PAGES = [
   {
     id:"simple_overview",
     title:"Overview",
-    lead:"The warehouse robots are heading back to their charging bays. Each robot follows its own route to the bay with the same number and colour.",
+    lead:"The warehouse robots are heading back to their charging bays. Each robot follows its own route to the bay that has the same number and colour.",
     points:[
       "Sometimes two robots reach the same square at the same time and get in each other's way.",
       "Your task is to write a simple rule to coordinate the robots and prevent them from colliding.",
-      "You write the rule by selecting values from two robot features: <strong class=\"tutorial-key\">Movement direction</strong> and <strong class=\"tutorial-key\">Robot type</strong>.",
+      "You write the rule by selecting values from the two robot features: <strong class=\"tutorial-key\">Movement direction</strong> and <strong class=\"tutorial-key\">Robot type</strong>.",
       "You write one rule for the whole map, and it decides who waits each time robots meet.",
       "The task is complete when <strong class=\"tutorial-key\">every robot reaches its bay</strong>.",
     ],
@@ -395,7 +414,7 @@ const SIMPLE_PAGES = [
   {
     id:"simple_features",
     title:"Robot features",
-    lead:"The waiting rule can use either of two robot features: Robot type or next Movement direction.",
+    lead:"The waiting rule can use the two robot features: Robot type and the next Movement direction.",
     points:[],
     scene:null,
     controls:false,
@@ -404,7 +423,7 @@ const SIMPLE_PAGES = [
   {
     id:"simple_movement",
     title:"Watch them travel",
-    lead:"Press Run. With no conflict on these routes, both robots will move straight to their charging bays.",
+    lead:"Press Run.\nWith no conflict on these routes, both robots will move straight to their charging bays.",
     points:[],
     scene:SIMPLE_MOVEMENT_SCENE,
     controls:true,
@@ -867,7 +886,7 @@ function simpleIntroReferenceMarkup(){
         </div>
         <span class="tut-intro-copy">
           <strong>Match the charging bay</strong>
-          <small>Robot 1 returns to charging bay 1. Their blue colour matches too. Colour helps you find the right bay.</small>
+          <small>Robot 1 returns to charging bay 1, and they share the same blue colour. The colour helps you find the right bay.</small>
         </span>
       </div>
       <div class="tut-intro-row">
@@ -1055,8 +1074,9 @@ const PRACTICE_TERMS = {
 function updateContinueState(){
   const page = PAGES[state.page];
   const requirement = page.requires;
+  const reveal = PROGRESSIVE_REVEAL_PAGES[page.id];
   el("tut-continue").disabled =
-    (page.id === "simple_overview" && state.overviewRevealStep < OVERVIEW_REVEAL_STEP_COUNT) ||
+    (reveal && state[reveal.stateKey] < reveal.count) ||
     (requirement === "practice_solved" && !state.practiceSolved) ||
     (requirement === "movement_observed" && !state.simpleMovementObserved) ||
     (requirement === "collision_observed" && !state.simpleCollisionObserved) ||
@@ -1265,44 +1285,48 @@ function renderReference(kind){
   }
 }
 
-function overviewRevealBlocks(){
+function currentProgressiveReveal(){
+  return PROGRESSIVE_REVEAL_PAGES[PAGES[state.page]?.id] || null;
+}
+
+function progressiveRevealBlocks(){
+  const pageId = PAGES[state.page]?.id;
+  if(pageId === "simple_features"){
+    const rows = Array.from(document.querySelectorAll("#tut-rule-reference .tut-intro-row"));
+    return [[el("tut-lead")], [rows[0]], [rows[1]]].map(block => block.filter(Boolean));
+  }
+  // Overview: the map and editor pictures stay visible; only the text is revealed.
   const points = Array.from(el("tut-points")?.children || []);
   return [
     [el("tut-lead")],
     [points[0]],
     [points[1]],
-    [points[2], el("tut-rule-reference")],
+    [points[2]],
     [points[3]],
     [points[4]],
   ].map(block => block.filter(Boolean));
 }
 
-function renderOverviewReveal(){
+function renderProgressiveReveal(){
   const body = document.querySelector(".tut-body");
-  const isOverview = PAGES[state.page]?.id === "simple_overview";
-  body?.classList.toggle("is-progressive-overview", isOverview);
+  const reveal = currentProgressiveReveal();
+  body?.classList.toggle("is-progressive-overview", !!reveal);
   const nextButton = el("tut-continue");
 
+  document.querySelectorAll(".overview-reveal-block").forEach(node => {
+    node.classList.remove("overview-reveal-block", "is-overview-visible");
+    node.removeAttribute("aria-hidden");
+  });
   const oldPrompt = el("tut-overview-reveal-prompt");
-  if(!isOverview){
+  if(!reveal){
     oldPrompt?.remove();
-    if(nextButton){
-      nextButton.hidden = false;
-      nextButton.classList.remove("is-overview-ready");
-    }
-    document.querySelectorAll(".overview-reveal-block").forEach(node => {
-      node.classList.remove("overview-reveal-block", "is-overview-visible");
-      node.removeAttribute("aria-hidden");
-    });
+    nextButton?.classList.remove("is-overview-ready");
     return;
   }
 
-  const blocks = overviewRevealBlocks();
-  const visual = el("tut-visual");
-  visual?.classList.remove("overview-reveal-block", "is-overview-visible");
-  visual?.removeAttribute("aria-hidden");
-  blocks.forEach((block, index) => {
-    const visible = index < state.overviewRevealStep;
+  const revealed = state[reveal.stateKey];
+  progressiveRevealBlocks().forEach((block, index) => {
+    const visible = index < revealed;
     block.forEach(node => {
       node.classList.add("overview-reveal-block");
       node.classList.toggle("is-overview-visible", visible);
@@ -1315,44 +1339,57 @@ function renderOverviewReveal(){
   prompt.id = "tut-overview-reveal-prompt";
   prompt.className = "tut-overview-reveal-prompt";
   prompt.setAttribute("aria-live", "polite");
-  if(state.overviewRevealStep < OVERVIEW_REVEAL_STEP_COUNT){
+  if(revealed < reveal.count){
     prompt.hidden = false;
-    prompt.textContent = "Press the space bar to reveal each step";
-    prompt.classList.toggle("is-muted", state.overviewRevealStep > 0);
+    prompt.textContent = "Click anywhere or press any key to see the next line.";
+    prompt.classList.toggle("is-muted", revealed > 0);
   }else{
     prompt.textContent = "";
     prompt.hidden = true;
   }
   if(!oldPrompt) copy?.appendChild(prompt);
 
-  if(nextButton){
-    const ready = state.overviewRevealStep >= OVERVIEW_REVEAL_STEP_COUNT;
-    nextButton.hidden = !ready;
-    nextButton.classList.toggle("is-overview-ready", ready);
-  }
+  nextButton?.classList.toggle("is-overview-ready", revealed >= reveal.count);
 }
 
-function revealNextOverviewBlock(){
-  if(PAGES[state.page]?.id !== "simple_overview") return false;
-  if(state.overviewRevealStep >= OVERVIEW_REVEAL_STEP_COUNT) return false;
-  state.overviewRevealStep += 1;
-  renderOverviewReveal();
+function revealNextBlock(trigger){
+  const reveal = currentProgressiveReveal();
+  if(!reveal || state[reveal.stateKey] >= reveal.count) return false;
+  state[reveal.stateKey] += 1;
+  renderProgressiveReveal();
   updateContinueState();
-  emit("tutorial_overview_block_revealed", {
-    reveal_step:state.overviewRevealStep,
-    reveal_step_count:OVERVIEW_REVEAL_STEP_COUNT,
+  emit(reveal.event, {
+    reveal_step:state[reveal.stateKey],
+    reveal_step_count:reveal.count,
+    reveal_trigger:trigger,
   });
   return true;
 }
 
+function canRevealNextBlock(){
+  if(el("tutorial-screen")?.hidden) return false;
+  const reveal = currentProgressiveReveal();
+  return !!reveal && state[reveal.stateKey] < reveal.count;
+}
+
 function handleTutorialKeydown(event){
-  if(event.code !== "Space" || event.repeat) return;
-  if(el("tutorial-screen")?.hidden) return;
-  if(PAGES[state.page]?.id !== "simple_overview") return;
-  if(state.overviewRevealStep >= OVERVIEW_REVEAL_STEP_COUNT) return;
-  event.preventDefault();
-  event.stopPropagation();
-  revealNextOverviewBlock();
+  if(event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
+  if(REVEAL_IGNORED_KEYS.has(event.key)) return;
+  if(!canRevealNextBlock()) return;
+  // Enter/Space on a focused Back or Next button activates that button instead.
+  const onNavButton = event.target?.closest?.("#tut-back, #tut-continue");
+  if(onNavButton && (event.key === "Enter" || event.key === " ")) return;
+  if(event.key === " "){
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  revealNextBlock("key");
+}
+
+function handleTutorialClick(event){
+  if(event.target?.closest?.("#tut-back, #tut-continue")) return;
+  if(!canRevealNextBlock()) return;
+  revealNextBlock("click");
 }
 
 function recordPageVisit(){
@@ -1518,7 +1555,7 @@ function renderPage(index){
     resetCurrentScene();
   }
   renderReference(page.reference);
-  renderOverviewReveal();
+  renderProgressiveReveal();
 
   el("tut-progress-label").textContent = `${state.page + 1} of ${PAGES.length}`;
   el("tut-progress-bar").style.width = `${((state.page + 1) / PAGES.length) * 100}%`;
@@ -1747,11 +1784,14 @@ function startTutorial(options={}, mode="standard"){
     state.simpleValues = {move_dir:[], role:[]};
     state.simplePracticeSolved = false;
     state.overviewRevealStep = 0;
+    state.featuresRevealStep = 0;
     comprehensionAttempt = 0;
     consentScrollDepths.clear();
     bind();
     document.removeEventListener("keydown", handleTutorialKeydown, true);
     document.addEventListener("keydown", handleTutorialKeydown, true);
+    document.removeEventListener("click", handleTutorialClick, true);
+    document.addEventListener("click", handleTutorialClick, true);
     window.addEventListener("resize", resizeTutorialLayout, {passive:true});
     emit("tutorial_started", {
       page_count:PAGES.length,
