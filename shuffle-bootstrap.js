@@ -10,6 +10,9 @@
     'jump-2':'early-jump',
     'jump-5':'late-jump',
   };
+  const connectedRoadItems = new Set([
+    'T4', 'T5', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6',
+  ]);
   const inferredStage = document.body?.dataset.stage || p.get('stage') ||
     (location.pathname.split('/').pop() || '').replace('.html', '') || 'consent';
   const needsServerAssignment = !preview && /^https?:$/.test(location.protocol) &&
@@ -102,6 +105,29 @@
   }
 
   const sequence = pool.sequences[schedule];
+
+  function taskWithConnectedRoad(name, index){
+    const task = structuredClone(pool.bank[name]);
+    if(connectedRoadItems.has(name)){
+      // Move the redundant square beside Robot 7 to the space beside Robot 8.
+      // This clarifies the road shape without changing any planned route.
+      task.world.walls = task.world.walls
+        .filter(([row, col]) => row !== 12 || col !== 5);
+      if(!task.world.walls.some(([row, col]) => row === 13 && col === 4)){
+        task.world.walls.push([13, 4]);
+      }
+    }
+    return {
+      ...task,
+      label:`T${index + 1}`,
+      level:index + 1,
+      measure:{phase:index < 5 ? 'expansion' : 'shuffle', index:index + 1},
+      starter_rulebook:pool.vocabulary.movement
+        .filter((_, bit) => sequence.reference[index].carried_mask & (1 << bit))
+        .map(v => ({conds:[{p:'move_dir', v, negated:false}]})),
+    };
+  }
+
   window.TASK_LIBRARY = {
     ...structuredClone(pool.template),
     condition:'carry',
@@ -109,15 +135,7 @@
     assignment_arm:armLabels[schedule] || 'researcher-preview',
     experiment_version:pool.version,
     study_preview:preview,
-    tasks:sequence.materials.map((name, index) => ({
-      ...structuredClone(pool.bank[name]),
-      label:`T${index + 1}`,
-      level:index + 1,
-      measure:{phase:index < 5 ? 'expansion' : 'shuffle', index:index + 1},
-      starter_rulebook:pool.vocabulary.movement
-        .filter((_, bit) => sequence.reference[index].carried_mask & (1 << bit))
-        .map(v => ({conds:[{p:'move_dir', v, negated:false}]})),
-    })),
+    tasks:sequence.materials.map(taskWithConnectedRoad),
   };
   window.EXPERIMENT_ASSIGNMENT = {
     schedule,

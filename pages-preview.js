@@ -16,7 +16,7 @@ const defaults = {
   continuation:"local",
   order:"curriculum",
   trial:"1",
-  v:window.SHARED_POOL?.version || "7bh-formal-v14",
+  v:window.SHARED_POOL?.version || "7bh-formal-v15",
 };
 let changed = false;
 
